@@ -1,0 +1,27 @@
+ul {
+    list-style-type: none; /* Remove bullets from the list */
+}
+
+/* Default styles for dark mode */
+body.light-mode {
+    background-color: #fff; /* Light background color for light mode */
+    color: #333; /* Text color for light mode */
+}
+
+/* Styles for dark mode */
+body.dark-mode {
+    background-color: #363535; /* Dark background color for dark mode */
+    color: #fff; /* Text color for dark mode */
+}
+
+/* Style for the dark mode toggle button */
+.dark-mode-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #212121; /* Dark gray background color */
+    color: #fff; /* Text color */
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+}

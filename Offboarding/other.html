@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown Generator</title>
+  </head>
+  <body>
+    <div
+      style="padding: 20px; border: 1px solid #ccc; width: 350px; margin: 20px"
+    >
+      <p>
+        <strong>NUMERO TICKET #:</strong>
+        <input type="number" id="inputTicketNumber" />
+      </p>
+      <label for="inputText">Input Text:</label>
+      <textarea id="inputText" rows="4" style="width: 100%"></textarea>
+      <br />
+      <button onclick="teste()">teste</button>
+      <button onclick="generateMarkdown()">Generate Markdown</button>
+    </div>
+
+    <div
+      id="output"
+      style="
+        display: none;
+        padding: 20px;
+        border: 1px solid #ccc;
+        width: 350px;
+        margin: 20px;
+      "
+    >
+      <label for="outputMarkdown">Markdown Output:</label>
+      <textarea id="outputMarkdown" rows="10" style="width: 100%"></textarea>
+      <br />
+      <a id="downloadLink" download="output.md" style="display: none"
+        ><button>Download Markdown</button></a
+      >
+    </div>
+
+    <script>
+      function teste(inputText) {
+        var inputText = document.getElementById("inputText").value;
+        alert(inputText);
+      }
+      function generateMarkdown() {
+        var inputText = document.getElementById("inputText").value;
+        var inputTicketNumber =
+          document.getElementById("inputTicketNumber").value;
+        var outputMarkdown = generateMarkdownText(inputText);
+
+        // Display the generated Markdown
+        document.getElementById("outputMarkdown").value = outputMarkdown;
+        document.getElementById("output").style.display = "block";
+
+        // Enable download link
+        var downloadLink = document.getElementById("downloadLink");
+        downloadLink.href =
+          "data:text/plain;charset=utf-8," + encodeURIComponent(outputMarkdown);
+        downloadLink.style.display = "block";
+      }
+
+      function generateMarkdownText(inputText) {
+        // You can customize this function based on your specific needs
+        return `## Demissões Grupo Bel
+
+* **DATA:** 01/11/2023
+* **NUMERO TICKET #:** [**${inputTicketNumber}**](https://tickets.grupobel.pt/Ticket/Display.html?id=69806)
+* **NOME:** ${inputText.split("\n")[0]}
+* **EMPRESA:** ${inputText.split("\n")[1]}
+* **FUNÇÃO:** ${inputText.split("\n")[2]}
+* **DATA SAÍDA:** ${inputText.split("\n")[3]}
+* **{SEM GLPI}**
+
+## CLICAR NAS CHECKBOX RESPECTIVAS E COLOCAR O NOME AO LADO DE QUEM CLICOU.
+
+* [x] Desactivar User GLPI | usernameGLPI| NÃO SE APLICA | MIRANDA
+* [x] Recolher equipamentos, conferir estado, dar baixa no GLPI| NÃO SE APLICA | MIRANDA
+* [x] Desactivar contas serviços externos (Drives, Adobe, Office, AutoCad, etc) | NÃO SE APLICA | MIRANDA
+* [x] Remover emails das Printers (ex: 10.0.13.21/24) | NÃO SE APLICA | MIRANDA
+* [x] Desactivar NextCloud| NÃO SE APLICA | MIRANDA
+* [ ] Cancelar E-MAIL | nomefuncionario@grupobel.pt | (Ex: Tiago Fernandes)
+* [x] Desactivar número telemóvel | *9#########*  | NÃO SE APLICA | MIRANDA
+* [ ] Desactivar user na AD | user | (Rúben Vicente)
+* [x] Desactivar PHC | nubia.tavares | (ex: Paulo Carvalho)
+* [x] Cancelar VPN | nomedaVPN| NÃO SE APLICA | MIRANDA
+* [x] Remover Licença ESET associada ao PC do utilizador| NÃO SE APLICA | MIRANDA
+* [x] Desactivar User Intranet | usernameIntranet | NÃO SE APLICA | MIRANDA`;
+      }
+    </script>
+  </body>
+</html>

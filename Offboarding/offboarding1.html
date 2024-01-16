@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  </head>
+  <body class="light-mode">
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+      Dark Mode
+    </button>
+
+    <p><strong>DATA:</strong> <input type="date" id="dataField" /></p>
+    <p>
+      <strong>NUMERO TICKET #:</strong> <input type="text" id="ticketNumber" />
+    </p>
+    <p><strong>NOME:</strong> <input type="text" id="nomeColaborador" /></p>
+    <p>
+      <strong>EMPRESA:</strong>
+      <select id="empresaDropdown">
+        <option value="Empresa 1">Empresa 1</option>
+        <option value="Empresa 2">Empresa 2</option>
+        <option value="Empresa 3">Empresa 3</option>
+      </select>
+    </p>
+    <p>
+      <strong>DEPARTAMENTO:</strong>
+      <select id="departamentoDropdown">
+        <option value="Dept 1 - Empresa 1">Dept 1 - Empresa 1</option>
+        <option value="Dept 2 - Empresa 1">Dept 2 - Empresa 1</option>
+        <option value="Dept 1 - Empresa 2">Dept 1 - Empresa 2</option>
+        <option value="Dept 2 - Empresa 2">Dept 2 - Empresa 2</option>
+        <option value="Dept 1 - Empresa 3">Dept 1 - Empresa 3</option>
+        <option value="Dept 2 - Empresa 3">Dept 2 - Empresa 3</option>
+      </select>
+    </p>
+    <h2>{GLPI}</h2>
+    <p>
+      <strong>GLPI:</strong>
+      <input type="radio" name="glpiChoice" value="Yes" id="glpiYes" />
+      <label for="glpiYes">Yes</label>
+      <input type="radio" name="glpiChoice" value="No" id="glpiNo" />
+      <label for="glpiNo">No</label>
+    </p>
+    <h3>
+      CLICAR NAS CHECKBOX RESPECTIVAS E COLOCAR O NOME AO LADO DE QUEM CLICOU.
+    </h3>
+    <ul>
+      <!-- Your checkboxes (without bullets) -->
+    </ul>
+
+    <button id="generateMarkdown">Generate Markdown File</button>
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      ul {
+            list-style-type: none; /* Remove bullets from the list */
+        }
+        body {
+            background-color: #303030; /* Dark background color */
+            color: #fff; /* Text color for dark mode */
+        }
+        
+        /* Style for the dark mode button */
+        .dark-mode-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #050505; /* Dark gray background color */
+            color: #fcf2f2; /* Text color */
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+        }
+        .dark-mode-toggle_01 {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #793434; /* Dark gray background color */
+            color: #fff; /* Text color */
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* Style for dark mode */
+        
+        .dark-mode {
+            background-color: #3e3c3c; /* Dark background color for dark mode */
+            color: #dbdbdb; /* Text color for dark mode */
+        }
+    </style>
+    <title>OffBoarding File Creator</title>
+  </head>
+  <body class="light-mode"> <!-- Light mode by default -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <header>
+      <h2>Demissões Grupo Bel</h2>
+    </header>
+
+    <div
+    style="padding: 20px; border: 1px solid #ccc; width: 350px; margin: 20px"
+  >
+    <p>
+      <strong>NUMERO TICKET #:</strong>
+      <input type="number" id="inputTicketNumber" />
+    </p>
+    <p>
+      <strong> TICKET #:</strong> <input type="number" id="ticketNumber" />
+    </p>
+    
+
+    <label for="textInput">Cole aqui os OffBoarding:</label>
+    <textarea id="textInput" rows="4" style="width: 100%"></textarea>
+    <br />
+    <button onclick="previewText()">Preview</button> <br />
+
+    <button onclick="generateMarkdown()">Generate Markdown</button>
+  </div>
+
+  <!-- 
+   
+    <p><strong>DATA:</strong> <input type="date" id="dataField" /></p>
+   
+
+    <p><strong>NOME:</strong> <input type="text" id="nomeColaborador" /></p>
+    
+
+      <p>
+      <strong>EMPRESA:</strong>
+      <select id="empresaDropdown">
+        <option value="Empresa 1">Empresa 1</option>
+        <option value="Empresa 2">Empresa 2</option>
+        <option value="Empresa 3">Empresa 3</option>
+        <!-- Add more options as needed
+      </select>
+    </p> 
+  -->
+
+    <!--<p>
+      <strong>DEPARTAMENTO:</strong>
+      <select id="departamentoDropdown">
+        <!-- Options for Department 1, relative to selected empresa ->
+        <option value="Dept 1 - Empresa 1">Dept 1 - Empresa 1</option>
+        <option value="Dept 2 - Empresa 1">Dept 2 - Empresa 1</option>
+        <!-- Options for Department 2, relative to selected empresa ->
+        <option value="Dept 1 - Empresa 2">Dept 1 - Empresa 2</option>
+        <option value="Dept 2 - Empresa 2">Dept 2 - Empresa 2</option>
+        <!-- Options for Department 3, relative to selected empresa ->
+        <option value="Dept 1 - Empresa 3">Dept 1 - Empresa 3</option>
+        <option value="Dept 2 - Empresa 3">Dept 2 - Empresa 3</option>
+        <!-- Add more options as needed ->
+      </select>
+    </p>
+  -->
+    <h3>{GLPI}</h3>
+    <p>
+      <strong>GLPI:</strong>
+      <input type="radio" name="glpiChoice" value="Yes" id="glpiYes" />
+      <label for="glpiYes">Yes</label>
+      <input type="radio" name="glpiChoice" value="No" id="glpiNo" />
+      <label for="glpiNo">No</label>
+    </p>
+    <div id="markdown_preview" >
+    <h5>
+      CLICAR NAS CHECKBOX RESPECTIVAS E COLOCAR O NOME AO LADO DE QUEM CLICOU.
+    </h5>
+    <ul>
+      <li>
+        <input type="checkbox" id="checkbox1" /> Desactivar User GLPI |
+        usernameGLPI | (ex: Diogo Gonçalves)
+      </li>
+      <li>
+        <input type="checkbox" id="checkbox2" /> Recolher equipamentos, conferir
+        estado, dar baixa no GLPI | (ex: Diogo Gonçalves, Diogo Costa ou Marcio
+        Carvalho)
+      </li>
+      <li>
+        <input type="checkbox" id="checkbox3" /> Desactivar contas serviços
+        externos (Drives, Adobe, Office, AutoCad, etc) | user | (ex: Diogo
+        Gonçalves)
+      </li>
+      <li>
+        <input type="checkbox" id="checkbox4" /> Remover emails das Printers
+        (ex: 10.0.13.21/24)
+      </li>
+      <li>
+        <input type="checkbox" id="checkbox5" /> Desactivar NextCloud | user |
+        (ex: Tiago Fernandes ou Diogo Costa)
+      </li>
+      <li>
+        <input type="checkbox" id="checkbox6" /> Cancelar E-MAIL |
+        nomefuncionario@grupobel.pt | (Ex: Tiago Fernandes)
+      </li>
+      <li>
+        <input type="checkbox" id="checkbox7" /> Desactivar número telemóvel |
+        *9#########* | Diogo Costa
+      </li>
+      <li>
+        <input type="checkbox" id="checkbox8" /> Desactivar user na AD | user |
+        (Rúben Vicente)
+      </li>
+      <li>
+        <input type="checkbox" id="checkbox9" /> Desactivar PHC | userPHC | (ex:
+        Ruben Vicente ou Paulo Carvalho)
+      </li>
+      <li>
+        <input type="checkbox" id="checkbox10" /> Cancelar VPN | nomedaVPN |
+        (ex: Marcio Carvalho)
+      </li>
+      <li>
+        <input type="checkbox" id="checkbox11" /> Remover Licença ESET associada
+        ao PC do utilizador (ex: Marcio Carvalho)
+      </li>
+      <li>
+        <input type="checkbox" id="checkbox12" /> Desactivar User Intranet |
+        usernameIntranet | (ex: Vadym)
+      </li>
+      <button id="generateMarkdown">Generate Markdown File</button>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/script1.js"></script>
+      
+     
+  </body>
+</html>

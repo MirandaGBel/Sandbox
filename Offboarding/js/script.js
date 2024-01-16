@@ -3,7 +3,8 @@ function previewText() {
     var inputTicketNumber = document.getElementById("inputTicketNumber").value;
     var textInput = document.getElementById("textInput").value;
     if (inputTicketNumber =="" || textInput == ""){
-        alert(inputTicketNumber)
+        alert("Por favor, preencha os campos Ticket e offboarding.")
+        //alert(inputTicketNumber)
     }
     else{
     // Extract information using regular expressions
@@ -31,9 +32,9 @@ function previewText() {
         "<html><head><title>Preview</title></head><body>"
         +"<h2>Preview:</h2>"
         +"<p><strong>Ticcket:</strong> " + inputTicketNumber + "</p>"
+        +"<p><strong>Name:</strong> " + name + "</p>"
         +"<p><strong>Enterprise:</strong> " + enterprise + "</p>"
         +"<p><strong>Employee Function:</strong> " + employeeFunction + "</p>"
-        +"<p><strong>Name:</strong> " + name + "</p>"
         +"<p><strong>Date:</strong> " + date + "</p>"+
         +"</body></html>");
         

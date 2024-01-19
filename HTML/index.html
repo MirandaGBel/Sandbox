@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <title>OffBoarding</title>
+  </head>
+  <body class="dark-mode">
+    <h2>OffBoarding</h2>
+    <!-- dark mode by default 
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+      light Mode
+    </button>
+    -->
+    <div class="divTicketNumber" id="divTicketNumber">
+      <p>
+        <strong>NUMERO TICKET #:</strong>
+        <input type="number" id="inputTicketNumber" />
+      </p>
+    </div>
+    <div class="inputManual" id="inputManual">
+      <p><strong>DATA:</strong> <input type="date" id="dataField" /></p>
+      <p><strong>NOME:</strong> <input type="text" id="nomeColaborador" /></p>
+      <p>
+        <strong>EMPRESA:</strong>
+        <select id="empresaDropdown">
+          <option value="Empresa 1">Empresa 1</option>
+          <option value="Empresa 2">Empresa 2</option>
+          <option value="Empresa 3">Empresa 3</option>
+        </select>
+      </p>
+      <p>
+        <strong>DEPARTAMENTO:</strong>
+        <select id="departamentoDropdown">
+          <option value="Dept 1 - Empresa 1">Dept 1 - Empresa 1</option>
+          <option value="Dept 2 - Empresa 1">Dept 2 - Empresa 1</option>
+          <option value="Dept 1 - Empresa 2">Dept 1 - Empresa 2</option>
+          <option value="Dept 2 - Empresa 2">Dept 2 - Empresa 2</option>
+          <option value="Dept 1 - Empresa 3">Dept 1 - Empresa 3</option>
+          <option value="Dept 2 - Empresa 3">Dept 2 - Empresa 3</option>
+        </select>
+      </p>
+    </div>
+    <br />
+    <div class="dropInput" id="dropInput">
+      <textarea
+        name="dropInputText"
+        id="dropInputText"
+        cols="30"
+        rows="10"
+      ></textarea
+      ><br />
+      <button onclick="previewText()">Preview</button>
+      <button id="switch" onclick="switchEdit()">Editar</button>
+    </div>
+
+    <div id="preview"></div>
+    <div id="preview1"></div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

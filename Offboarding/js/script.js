@@ -1,4 +1,5 @@
 function previewText() {
+
     // Get the input text
     var inputTicketNumber = document.getElementById("inputTicketNumber").value;
     var textInput = document.getElementById("textInput").value;
@@ -8,6 +9,12 @@ function previewText() {
     }
     else{
     // Extract information using regular expressions
+    
+        var checklist = document.getElementById("checklist1");
+        checklist.style.display = (checklist.style.display === 'none') ? 'block' : 'none';
+      
+    
+
 
     //var inputTicketNumber = textInput.match(/EMPRESA: (.+)$/m);
     var enterpriseMatch = textInput.match(/EMPRESA: (.+)$/m);
@@ -26,6 +33,7 @@ function previewText() {
 
     // Create a preview popup
     var previewWindow = window.open("", "Preview", "width=400,height=300");
+    //document.getElementById('markdown_preview').document.write = "Date()"
 
     // Write the preview content to the popup
     previewWindow.document.write(

@@ -1,4 +1,15 @@
-ul {
+.checklist {
+    display: none; /* Hide the checklist by default */
+  }
+
+  ul {
+    list-style-type: none; /* Remove bullets from the list */
+}
+body {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Text color for dark mode */
+}
+  ul {
     list-style-type: none; /* Remove bullets from the list */
 }
 
@@ -10,7 +21,7 @@ body.light-mode {
 
 /* Styles for dark mode */
 body.dark-mode {
-    background-color: #363535; /* Dark background color for dark mode */
+    background-color: #333; /* Dark background color for dark mode */
     color: #fff; /* Text color for dark mode */
 }
 
@@ -19,9 +30,49 @@ body.dark-mode {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #212121; /* Dark gray background color */
+    background-color: #333; /* Dark gray background color */
     color: #fff; /* Text color */
     padding: 8px 12px;
     border: none;
     cursor: pointer;
 }
+#checklist{
+    display: none;
+}
+#inputManual {
+    display: none; /* Hide the textarea by default */
+  }
+.checklist{
+    display: none;
+}
+    
+        
+        /* Style for the dark mode button */
+        .dark-mode-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #050505; /* Dark gray background color */
+            color: #fcf2f2; /* Text color */
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+        }
+        .dark-mode-toggle_01 {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #793434; /* Dark gray background color */
+            color: #fff; /* Text color */
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* Style for dark mode */
+        
+        .dark-mode {
+            background-color: #333; /* Dark background color for dark mode */
+            color: #dbdbdb; /* Text color for dark mode */
+        }
+    
